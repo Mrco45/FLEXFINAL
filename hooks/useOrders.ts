@@ -43,12 +43,12 @@ export const useOrders = () => {
   }, []);
 
   const addOrder = useCallback(async (newOrder: Omit<Order, 'id' | 'totalCost'>) => {
-    const totalCost = newOrder.items.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
+    const totalCost = newOrder.items.reduce((sum, item) => sum + (Number(item.quantity) * Number(item.cost) || 0), 0);
     await addDoc(collection(db, 'orders'), { ...newOrder, totalCost });
   }, []);
 
   const updateOrder = useCallback(async (updatedOrder: Order) => {
-    const totalCost = updatedOrder.items.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
+    const totalCost = updatedOrder.items.reduce((sum, item) => sum + (Number(item.quantity) * Number(item.cost) || 0), 0);
     const orderRef = doc(db, 'orders', updatedOrder.id);
     await updateDoc(orderRef, { ...updatedOrder, totalCost });
   }, []);

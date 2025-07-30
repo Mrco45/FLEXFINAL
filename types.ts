@@ -3,6 +3,7 @@ export enum OrderStatus {
   InProgress = 'In Progress',
   ReadyForPickup = 'Ready for Pickup',
   Completed = 'Completed',
+  Cancelled = 'Cancelled',
 }
 
 export interface AttachmentFile {

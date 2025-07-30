@@ -4,7 +4,14 @@ export const ALL_STATUSES: OrderStatus[] = [
   OrderStatus.NewOrder,
   OrderStatus.InProgress,
   OrderStatus.ReadyForPickup,
+];
+
+export const ALL_STATUSES_WITH_COMPLETED: OrderStatus[] = [
+  OrderStatus.NewOrder,
+  OrderStatus.InProgress,
+  OrderStatus.ReadyForPickup,
   OrderStatus.Completed,
+  OrderStatus.Cancelled,
 ];
 
 export const STATUS_COLORS: Record<OrderStatus, { base: string; text: string; border: string }> = {
@@ -12,4 +19,5 @@ export const STATUS_COLORS: Record<OrderStatus, { base: string; text: string; bo
   [OrderStatus.InProgress]: { base: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-300' },
   [OrderStatus.ReadyForPickup]: { base: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-300' },
   [OrderStatus.Completed]: { base: 'bg-green-100', text: 'text-green-800', border: 'border-green-300' },
+  [OrderStatus.Cancelled]: { base: 'bg-red-100', text: 'text-red-800', border: 'border-red-300' },
 };
